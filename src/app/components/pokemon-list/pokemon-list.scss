@@ -1,0 +1,57 @@
+.pokemon-container {
+  padding: 24px;
+  text-align: center;
+}
+
+.state {
+  margin: 32px 0;
+  font-size: 1.1rem;
+
+  &--error {
+    color: #c0392b;
+  }
+}
+
+.pokemon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pokemon-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  padding: 16px;
+  text-align: center;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h3 {
+    text-transform: capitalize;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.85rem;
+    margin: 4px 0;
+    text-transform: capitalize;
+  }
+}
+
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  button {
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,48 @@
+<div class="pokemon-container">
+  <h1>Pokédex</h1>
+
+  <!-- Estado de carga -->
+  <div class="state state--loading" *ngIf="isLoading">
+    <p>Cargando Pokémon...</p>
+  </div>
+
+  <!-- Estado de error -->
+  <div class="state state--error" *ngIf="errorMessage && !isLoading">
+    <p>{{ errorMessage }}</p>
+    <button (click)="loadPokemons()">Reintentar</button>
+  </div>
+
+  <!-- Listado de tarjetas -->
+  <div class="pokemon-grid" *ngIf="!isLoading && !errorMessage">
+    <div class="pokemon-card" *ngFor="let pokemon of pokemons">
+      <img [src]="pokemon.image" [alt]="pokemon.name" />
+      <h3>{{ pokemon.name }}</h3>
+
+      <p>
+        <strong>Altura:</strong>
+        {{ pokemon.height }}
+      </p>
+
+      <p>
+        <strong>Peso:</strong>
+        {{ pokemon.weight }}
+      </p>
+
+      <p>
+        <strong>Tipos:</strong>
+        {{ pokemon.types.join(', ') }}
+      </p>
+
+      <p>
+        <strong>Habilidades:</strong>
+        {{ pokemon.abilities.join(', ') }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Paginación -->
+  <div class="pagination" *ngIf="!isLoading && !errorMessage">
+    <button (click)="previousPage()" [disabled]="offset === 0">Anterior</button>
+    <button (click)="nextPage()">Siguiente</button>
+  </div>
+</div>

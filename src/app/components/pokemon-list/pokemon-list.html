@@ -15,22 +15,24 @@
   <!-- Listado de tarjetas -->
   <div class="pokemon-grid" *ngIf="!isLoading && !errorMessage">
     <div class="pokemon-card" *ngFor="let pokemon of pokemons">
+      <span class="pokemon-card__number">#{{ pokemon.id.toString().padStart(3, '0') }}</span>
       <img [src]="pokemon.image" [alt]="pokemon.name" />
       <h3>{{ pokemon.name }}</h3>
+
+      <div class="pokemon-card__types">
+        <span class="type-badge" [class]="'type-badge--' + type" *ngFor="let type of pokemon.types">
+          {{ type }}
+        </span>
+      </div>
 
       <p>
         <strong>Altura:</strong>
         {{ pokemon.height }}
       </p>
-
+      
       <p>
         <strong>Peso:</strong>
         {{ pokemon.weight }}
-      </p>
-
-      <p>
-        <strong>Tipos:</strong>
-        {{ pokemon.types.join(', ') }}
       </p>
 
       <p>
